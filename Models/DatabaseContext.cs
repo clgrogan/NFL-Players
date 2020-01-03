@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+// using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace NFL_Players.Models
 {
   public partial class DatabaseContext : DbContext
   {
+    public DbSet<Team> Teams { get; set; }
+    public DbSet<Player> Players { get; set; }
 
     private string ConvertPostConnectionToConnectionString(string connection)
     {
@@ -20,7 +22,7 @@ namespace NFL_Players.Models
       if (!optionsBuilder.IsConfigured)
       {
         var envConn = Environment.GetEnvironmentVariable("DATABASE_URL");
-#warning Update this connection string to point to your own database.
+#warning Update this furry string to point to your own database.
         var conn = "server=localhost;database=NFL_PlayersDatabase";
         if (envConn != null)
         {
