@@ -6,23 +6,23 @@ namespace NFL_Players.Controllers
 {
   [ApiController]
   [Route("api[controller]")]
-  public class PlayerController : ControllerBase
+  public class TeamController : ControllerBase
   {
     [HttpGet]
-    public ActionResult GetAllPlayers()
+    public ActionResult GetAllTeams()
     {
       var db = new DatabaseContext();
       // return Ok(new { Pong = DateTime.Now });
-      return Ok(db.Players.OrderBy(player => player.Team));
+      return Ok(db.Teams.OrderBy(team => team.Name));
     }
 
     [HttpPost]
-    public ActionResult CreatePlayer(Player player)
+    public ActionResult CreateTeam(Team team)
     {
       var db = new DatabaseContext();
-      db.Players.Add(player);
+      db.Teams.Add(team);
       db.SaveChanges();
-      return Ok(player);
+      return Ok(team);
     }
   }
 

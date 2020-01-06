@@ -1,4 +1,7 @@
-using System;
+// using System;
+using System.Collections.Generic;
+// using System.ComponentModel.DataAnnotations;
+
 
 namespace NFL_Players.Models
 {
@@ -19,6 +22,7 @@ namespace NFL_Players.Models
     public string GeneralManager { get; set; }
     public string HeadCoach { get; set; }
     public string Mascot { get; set; }
+    public List<Player> Players { get; set; } = new List<Player>();
 
   }
 
